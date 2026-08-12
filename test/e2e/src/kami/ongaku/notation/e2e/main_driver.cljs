@@ -1,4 +1,4 @@
-(ns kami.ongaku.e2e.main-driver
+(ns kami.ongaku.notation.e2e.main-driver
   "E2E-only, main-thread bundle for kami-ongaku-notation's real-browser
    AudioWorkletProcessor phrase proof. Uses kotoba-lang/org-w3-webaudio's
    own src/w3/webaudio.cljs binding layer (not raw AudioContext calls) --

@@ -8,13 +8,13 @@
    path (org-w3-webaudio commit e554d853d640, reused verbatim per
    kami-ongaku-sampler's own precedent -- not rediscovered).
 
-   The phrase (test/e2e/src/kami/ongaku/e2e/fixture.cljc, required
+   The phrase (test/e2e/src/kami/ongaku/notation/e2e/fixture.cljc, required
    UNMODIFIED here and by the worklet bundle): C4 quarter (pp), E4 eighth
    (mf), G4 eighth (mf), C5 half (ff), one 4/4 measure at 120 BPM -- 4
    distinct pitches, 3 distinct duration values, dynamics spanning pp..ff.
 
    This script:
-     1. requires kami.ongaku.e2e.fixture directly (nbb, no browser) and
+     1. requires kami.ongaku.notation.e2e.fixture directly (nbb, no browser) and
         checks `measure-valid?` (the phrase's own durations really do sum
         to the 4/4 capacity, via this repo's real validate/validate-part).
      2. round-trips the score through this repo's REAL MusicXML export
@@ -28,7 +28,7 @@
      4. computes an offline reference PCM buffer directly from
         kotoba-lang/audio's audio.synth (same DSP the worklet uses), here,
         with NO browser involved, as ground truth.
-     5. compiles+runs (via test/e2e/src/kami/ongaku/e2e/{worklet_dsp,
+     5. compiles+runs (via test/e2e/src/kami/ongaku/notation/e2e/{worklet_dsp,
         main_driver}.cljs, scripts/build-e2e-bundles.sh) a real headless
         Chromium (Playwright) rendering the WHOLE phrase in ONE
         OfflineAudioContext / AudioWorkletProcessor pass (not 4 separate
@@ -62,7 +62,7 @@
             ["fs" :as fs]
             ["path" :as path]
             [audio.synth :as synth]
-            [kami.ongaku.e2e.fixture :as fixture]))
+            [kami.ongaku.notation.e2e.fixture :as fixture]))
 
 (def site-dir (path/join (js/process.cwd) "test" "e2e" "page"))
 (def port 8942)

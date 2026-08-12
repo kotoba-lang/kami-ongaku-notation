@@ -1,4 +1,4 @@
-(ns kami.ongaku.e2e.fixture
+(ns kami.ongaku.notation.e2e.fixture
   "Shared, portable (.cljc — JVM + cljs, required UNMODIFIED by both the
    real-browser worklet bundle and the offline nbb cross-check) fixture for
    kami-ongaku-notation's real-browser AudioWorklet phrase proof (see
@@ -45,7 +45,7 @@
             velocity 16..127), linearly scaled to a [0,1] gain by /127.0
             (the standard MIDI-velocity-to-linear-gain convention).
 
-   Both the worklet-side bundle (test/e2e/src/kami/ongaku/e2e/worklet_dsp.cljs)
+   Both the worklet-side bundle (test/e2e/src/kami/ongaku/notation/e2e/worklet_dsp.cljs)
    and test/e2e/run_e2e.cljs (nbb, no browser) require this namespace
    UNMODIFIED, so the phrase/score/conversions the browser renders and the
    ones the offline reference is computed from are provably the same data,

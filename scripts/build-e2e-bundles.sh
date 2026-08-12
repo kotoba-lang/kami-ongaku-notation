@@ -2,16 +2,16 @@
 # Compiles the two bundles needed for kami-ongaku-notation's real-browser
 # AudioWorkletProcessor phrase E2E (test/e2e/run_e2e.cljs):
 #
-#   1. test/e2e/src/kami/ongaku/e2e/main_driver.cljs -> main-thread bundle
+#   1. test/e2e/src/kami/ongaku/notation/e2e/main_driver.cljs -> main-thread bundle
 #      (page/main-driver-bundle.js). Uses kotoba-lang/org-w3-webaudio's own
 #      src/w3/webaudio.cljs binding layer to drive ONE OfflineAudioContext /
 #      audioWorklet.addModule / AudioWorkletNode for the whole phrase.
-#   2. test/e2e/src/kami/ongaku/e2e/worklet_dsp.cljs -> worklet-side bundle
+#   2. test/e2e/src/kami/ongaku/notation/e2e/worklet_dsp.cljs -> worklet-side bundle
 #      (page/worklet-processor.js). Requires kotoba-lang/audio's audio.synth
 #      -- the real oscillator + ADSR DSP -- and renders all 4 notes of the
 #      phrase into one continuous buffer, each at its own onset sample
 #      (kami.ongaku.notation.rational-derived, computed by
-#      test/e2e/src/kami/ongaku/e2e/fixture.cljc and passed in as plain
+#      test/e2e/src/kami/ongaku/notation/e2e/fixture.cljc and passed in as plain
 #      numbers via processorOptions).
 #
 # Both MUST compile with --optimizations advanced, and both MUST have
@@ -53,20 +53,20 @@ cd "$(dirname "$0")/.."
 rm -rf test/e2e/.build-main test/e2e/.build-worklet
 mkdir -p test/e2e/page
 
-echo "compiling main-thread driver bundle (kami.ongaku.e2e.main-driver)..."
+echo "compiling main-thread driver bundle (kami.ongaku.notation.e2e.main-driver)..."
 clojure -M:e2e -m cljs.main -d test/e2e/.build-main \
   --optimizations advanced \
   --output-to test/e2e/page/main-driver-bundle.raw.js \
-  -c kami.ongaku.e2e.main-driver
+  -c kami.ongaku.notation.e2e.main-driver
 cat test/e2e/page/self-polyfill.js test/e2e/page/main-driver-bundle.raw.js \
     > test/e2e/page/main-driver-bundle.js
 rm -f test/e2e/page/main-driver-bundle.raw.js
 
-echo "compiling worklet phrase-render bundle (kami.ongaku.e2e.worklet-dsp)..."
+echo "compiling worklet phrase-render bundle (kami.ongaku.notation.e2e.worklet-dsp)..."
 clojure -M:e2e -m cljs.main -d test/e2e/.build-worklet \
   --optimizations advanced \
   --output-to test/e2e/page/worklet-dsp-bundle.raw.js \
-  -c kami.ongaku.e2e.worklet-dsp
+  -c kami.ongaku.notation.e2e.worklet-dsp
 cat test/e2e/page/self-polyfill.js \
     test/e2e/page/worklet-dsp-bundle.raw.js \
     test/e2e/page/worklet-processor-tail.js \
