@@ -5,14 +5,14 @@
 // cljs is not a solved idiom, whereas this is a handful of lines and keeps
 // registerProcessor's real-`class` requirements unambiguous. All DSP math
 // still comes from the compiled bundle's
-// kami.ongaku.e2e.worklet_dsp.render_phrase (i.e. from kotoba-lang/audio's
+// kami.ongaku.notation.e2e.worklet_dsp.render_phrase (i.e. from kotoba-lang/audio's
 // own audio.synth) -- this file only streams the precomputed whole-phrase
 // buffer out through the realtime process() quantum callback.
 class KamiPhraseProcessor extends AudioWorkletProcessor {
   constructor(options) {
     super();
     const p = (options && options.processorOptions) || {};
-    this.buffer = kami.ongaku.e2e.worklet_dsp.render_phrase(
+    this.buffer = kami.ongaku.notation.e2e.worklet_dsp.render_phrase(
       p.notes, p.totalSamples, p.sr, p.attack, p.decay, p.sustain, p.release);
     this.readIdx = 0;
   }

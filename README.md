@@ -116,7 +116,7 @@ continuous buffer, each note at its own sequential onset**, in a single
 notation data drive one continuous sequential phrase," not 4 independent
 notes.
 
-### The phrase (`test/e2e/src/kami/ongaku/e2e/fixture.cljc`)
+### The phrase (`test/e2e/src/kami/ongaku/notation/e2e/fixture.cljc`)
 
 One 4/4 measure at 120 BPM, built entirely with this repo's own
 `notation/note` — 4 distinct pitches, 3 distinct duration values, dynamics
@@ -215,7 +215,7 @@ playback params (freq/gain/onset/dur-samples) IDENTICAL before vs. after round t
 - `PASS: true`.
 
 **A real bug was found and fixed while building this proof** (documented
-in `test/e2e/src/kami/ongaku/e2e/worklet_dsp.cljs`): `kotoba-lang/audio`'s
+in `test/e2e/src/kami/ongaku/notation/e2e/worklet_dsp.cljs`): `kotoba-lang/audio`'s
 `audio.synth/adsr` takes its `:attack`/`:decay`/`:release` keys in
 **seconds** (it converts to samples internally) — only `:gate-off` is a
 sample index. An earlier version of this harness pre-converted
@@ -247,7 +247,7 @@ Setup and run:
 ```bash
 npm --prefix test/e2e install                    # Playwright
 npx --prefix test/e2e playwright install chromium
-bash scripts/build-e2e-bundles.sh                 # compiles kami.ongaku.e2e.{worklet-dsp,main-driver}
+bash scripts/build-e2e-bundles.sh                 # compiles kami.ongaku.notation.e2e.{worklet-dsp,main-driver}
                                                    # -> test/e2e/page/{worklet-processor,main-driver-bundle}.js
                                                    # (JVM/Clojure CLI build step, not an app-runtime
                                                    # choice -- see scripts/build-e2e-bundles.sh)

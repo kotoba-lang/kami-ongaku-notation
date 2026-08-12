@@ -1,4 +1,4 @@
-(ns kami.ongaku.e2e.worklet-dsp
+(ns kami.ongaku.notation.e2e.worklet-dsp
   "E2E-only, worklet-side bundle for kami-ongaku-notation's real-browser
    AudioWorkletProcessor phrase proof (see README, 'Real-browser
    AudioWorklet phrase proof'). Requires kotoba-lang/audio's own
@@ -18,13 +18,13 @@
    against Closure's :advanced whole-program DCE, per org-w3-webaudio's
    own worklet_dsp.cljs docstring), callable from the hand-written
    AudioWorkletProcessor tail (test/e2e/page/worklet-processor-tail.js) at
-   its munged path kami.ongaku.e2e.worklet_dsp.render_phrase.
+   its munged path kami.ongaku.notation.e2e.worklet_dsp.render_phrase.
 
    Unlike kami-ongaku-sampler's E2E (one OfflineAudioContext render per
    trigger input), this renders the WHOLE phrase -- all 4 notes -- into
    ONE continuous buffer, each note placed at its own onset sample (from
    kami.ongaku.notation.rational-derived, exact sample positions computed
-   in test/e2e/src/kami/ongaku/e2e/fixture.cljc and passed in via
+   in test/e2e/src/kami/ongaku/notation/e2e/fixture.cljc and passed in via
    processorOptions), because the task this proves is 'does the notation
    data drive one continuous sequential phrase', not 4 independent notes."
   (:require [audio.synth :as synth]))
@@ -62,7 +62,7 @@
 
 (defn ^:export render-phrase
   "-> Float32Array of `total-samples` samples. `notes-js` is a JS array of
-   {freq, gain, onset, \"dur-samples\"} rows (kami.ongaku.e2e.fixture/
+   {freq, gain, onset, \"dur-samples\"} rows (kami.ongaku.notation.e2e.fixture/
    notes->playback-params, converted to JS by the caller via `clj->js` --
    note the key stays the literal kebab-case `dur-samples` string through
    the JS/JSON boundary, since `clj->js`/`js->clj :keywordize-keys` do not
