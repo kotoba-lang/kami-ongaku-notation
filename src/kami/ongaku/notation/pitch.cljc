@@ -5,7 +5,7 @@
   a derived value, never the source of truth for a written score.
 
   Portable .cljc — no platform-specific calls."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (def step->semitone {:C 0 :D 2 :E 4 :F 5 :G 7 :A 9 :B 11})
 (def steps (vec (keys step->semitone)))
@@ -66,6 +66,6 @@
   [s]
   (when-let [[_ step-str acc-str octave-str]
              (re-matches #"(?i)([A-G])(bb|b|#|x)?(-?\d+)" s)]
-    (pitch {:step (keyword (str/upper-case step-str))
+    (pitch {:step (keyword (str/upper step-str))
             :alter (get suffix->alter (or acc-str ""))
             :octave (parse-int octave-str)})))
