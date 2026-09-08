@@ -7,7 +7,7 @@
   Portable .cljc — uses only String-as-sequence operations (charAt/subs)
   that clj and cljs both support identically on strings, no platform XML
   library."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (defn escape-text [s]
   (-> s
