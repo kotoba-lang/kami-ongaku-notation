@@ -24,7 +24,7 @@
    trigger input), this renders the WHOLE phrase -- all 4 notes -- into
    ONE continuous buffer, each note placed at its own onset sample (from
    kami.ongaku.notation.rational-derived, exact sample positions computed
-   in test/e2e/src/kami/ongaku/notation/e2e/fixture.cljc and passed in via
+   in test/e2e/src/kami/ongaku/notation/e2e/fixture.cljk and passed in via
    processorOptions), because the task this proves is 'does the notation
    data drive one continuous sequential phrase', not 4 independent notes."
   (:require [audio.synth :as synth]))

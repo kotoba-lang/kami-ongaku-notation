@@ -8,7 +8,7 @@
    path (org-w3-webaudio commit e554d853d640, reused verbatim per
    kami-ongaku-sampler's own precedent -- not rediscovered).
 
-   The phrase (test/e2e/src/kami/ongaku/notation/e2e/fixture.cljc, required
+   The phrase (test/e2e/src/kami/ongaku/notation/e2e/fixture.cljk, required
    UNMODIFIED here and by the worklet bundle): C4 quarter (pp), E4 eighth
    (mf), G4 eighth (mf), C5 half (ff), one 4/4 measure at 120 BPM -- 4
    distinct pitches, 3 distinct duration values, dynamics spanning pp..ff.
@@ -56,7 +56,7 @@
    inside test/e2e/ for the Playwright dependency, and this repo's own src/
    plus a checkout of kotoba-lang/audio on the nbb classpath:
 
-     nbb -cp \"src:test/e2e/src:$AUDIO_SRC_PATH\" test/e2e/run_e2e.cljs"
+     nbb -cp \"src:test/e2e/src:$AUDIO_SRC_PATH\" test/e2e/run_e2e.cljk"
   (:require ["playwright" :refer [chromium]]
             ["http" :as http]
             ["fs" :as fs]
