@@ -116,7 +116,7 @@ continuous buffer, each note at its own sequential onset**, in a single
 notation data drive one continuous sequential phrase," not 4 independent
 notes.
 
-### The phrase (`test/e2e/src/kami/ongaku/notation/e2e/fixture.cljc`)
+### The phrase (`test/e2e/src/kami/ongaku/notation/e2e/fixture.cljk`)
 
 One 4/4 measure at 120 BPM, built entirely with this repo's own
 `notation/note` — 4 distinct pitches, 3 distinct duration values, dynamics
@@ -215,7 +215,7 @@ playback params (freq/gain/onset/dur-samples) IDENTICAL before vs. after round t
 - `PASS: true`.
 
 **A real bug was found and fixed while building this proof** (documented
-in `test/e2e/src/kami/ongaku/notation/e2e/worklet_dsp.cljs`): `kotoba-lang/audio`'s
+in `test/e2e/src/kami/ongaku/notation/e2e/worklet_dsp.cljk`): `kotoba-lang/audio`'s
 `audio.synth/adsr` takes its `:attack`/`:decay`/`:release` keys in
 **seconds** (it converts to samples internally) — only `:gate-off` is a
 sample index. An earlier version of this harness pre-converted
@@ -252,7 +252,7 @@ bash scripts/build-e2e-bundles.sh                 # compiles kami.ongaku.notatio
                                                    # (JVM/Clojure CLI build step, not an app-runtime
                                                    # choice -- see scripts/build-e2e-bundles.sh)
 AUDIO_SRC_PATH=/path/to/kotoba-lang/audio/src
-nbb -cp "src:test/e2e/src:$AUDIO_SRC_PATH" test/e2e/run_e2e.cljs
+nbb -cp "src:test/e2e/src:$AUDIO_SRC_PATH" test/e2e/run_e2e.cljk
 ```
 
 Exits 0 and prints the full fixture-side checks (measure validity, round

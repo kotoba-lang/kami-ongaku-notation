@@ -2,7 +2,7 @@
   "Shared, portable (.cljc — JVM + cljs, required UNMODIFIED by both the
    real-browser worklet bundle and the offline nbb cross-check) fixture for
    kami-ongaku-notation's real-browser AudioWorklet phrase proof (see
-   test/e2e/run_e2e.cljs and README, 'Real-browser AudioWorklet phrase
+   test/e2e/run_e2e.cljk and README, 'Real-browser AudioWorklet phrase
    proof').
 
    kami-ongaku-notation has no audio synthesis of its own (out of scope per
@@ -45,8 +45,8 @@
             velocity 16..127), linearly scaled to a [0,1] gain by /127.0
             (the standard MIDI-velocity-to-linear-gain convention).
 
-   Both the worklet-side bundle (test/e2e/src/kami/ongaku/notation/e2e/worklet_dsp.cljs)
-   and test/e2e/run_e2e.cljs (nbb, no browser) require this namespace
+   Both the worklet-side bundle (test/e2e/src/kami/ongaku/notation/e2e/worklet_dsp.cljk)
+   and test/e2e/run_e2e.cljk (nbb, no browser) require this namespace
    UNMODIFIED, so the phrase/score/conversions the browser renders and the
    ones the offline reference is computed from are provably the same data,
    not two hand-synced copies."
@@ -81,7 +81,7 @@
 (def score
   "A real, single-measure, single-part score wrapping `phrase-notes` — 4/4
    time, C major (fifths 0), 120 BPM. Time-sig capacity check
-   (`validate/validate-part`) is exercised in test/e2e/run_e2e.cljs, not
+   (`validate/validate-part`) is exercised in test/e2e/run_e2e.cljk, not
    skipped."
   (notation/score
    {:parts
@@ -188,7 +188,7 @@
   "-> vector of {:freq :gain :onset :dur-samples}, one per note in `notes`
    (phrase order), using ONLY this repo's own pitch/duration/dynamics
    functions above. Called once on `phrase-notes` (pre-round-trip) and
-   once on `round-trip-notes` (post-round-trip) by test/e2e/run_e2e.cljs
+   once on `round-trip-notes` (post-round-trip) by test/e2e/run_e2e.cljk
    to prove the MusicXML round trip didn't change the derived playback
    data."
   [notes]

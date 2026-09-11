@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 # Compiles the two bundles needed for kami-ongaku-notation's real-browser
-# AudioWorkletProcessor phrase E2E (test/e2e/run_e2e.cljs):
+# AudioWorkletProcessor phrase E2E (test/e2e/run_e2e.cljk):
 #
-#   1. test/e2e/src/kami/ongaku/notation/e2e/main_driver.cljs -> main-thread bundle
+#   1. test/e2e/src/kami/ongaku/notation/e2e/main_driver.cljk -> main-thread bundle
 #      (page/main-driver-bundle.js). Uses kotoba-lang/org-w3-webaudio's own
 #      src/w3/webaudio.cljs binding layer to drive ONE OfflineAudioContext /
 #      audioWorklet.addModule / AudioWorkletNode for the whole phrase.
-#   2. test/e2e/src/kami/ongaku/notation/e2e/worklet_dsp.cljs -> worklet-side bundle
+#   2. test/e2e/src/kami/ongaku/notation/e2e/worklet_dsp.cljk -> worklet-side bundle
 #      (page/worklet-processor.js). Requires kotoba-lang/audio's audio.synth
 #      -- the real oscillator + ADSR DSP -- and renders all 4 notes of the
 #      phrase into one continuous buffer, each at its own onset sample
 #      (kami.ongaku.notation.rational-derived, computed by
-#      test/e2e/src/kami/ongaku/notation/e2e/fixture.cljc and passed in as plain
+#      test/e2e/src/kami/ongaku/notation/e2e/fixture.cljk and passed in as plain
 #      numbers via processorOptions).
 #
 # Both MUST compile with --optimizations advanced, and both MUST have
