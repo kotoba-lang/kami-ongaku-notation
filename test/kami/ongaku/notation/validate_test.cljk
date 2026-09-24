@@ -1,5 +1,5 @@
 (ns kami.ongaku.notation.validate-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [kami.ongaku.notation :as notation]
             [kami.ongaku.notation.rational :as r]
             [kami.ongaku.notation.validate :as validate]))
