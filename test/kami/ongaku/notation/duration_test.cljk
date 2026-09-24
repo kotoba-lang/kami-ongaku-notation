@@ -1,5 +1,5 @@
 (ns kami.ongaku.notation.duration-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [kami.ongaku.notation.duration :as duration]
             [kami.ongaku.notation.rational :as r]))
 

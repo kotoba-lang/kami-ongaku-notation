@@ -1,5 +1,5 @@
 (ns kami.ongaku.notation.xml-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [kami.ongaku.notation.xml :as xml]))
 
 (deftest escape-unescape-test

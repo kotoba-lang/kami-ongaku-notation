@@ -1,5 +1,5 @@
 (ns kami.ongaku.notation.pitch-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [kami.ongaku.notation.pitch :as pitch]))
 
 (deftest pitch-test

@@ -1,5 +1,5 @@
 (ns kami.ongaku.notation.musicxml-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [kami.ongaku.notation :as notation]
             [kami.ongaku.notation.musicxml :as musicxml]))
 
